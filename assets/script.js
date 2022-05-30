@@ -17,19 +17,20 @@ function writePassword() {
 
     // asks for special characters
     var characters = window.confirm("Do you want to include special characters?");
-    console.log(characters);
 
     //asks for lowercase
     var lowercase = window.confirm("Do you want to include lowercase?");
-    console.log(lowercase);
 
     //asks for uppercase
     var uppercase = window.confirm("Do you want to include uppercase?");
-    console.log(uppercase);
 
     //asks for numeric
     var numbers = window.confirm("Do you want to include numbers?");
-    console.log(numbers);
+
+    if (!characters && !lowercase && !uppercase && !numbers){
+      window.alert("At least one character type must be included. Please start over.");
+      generatePassword(); 
+    }
 
   }
 
