@@ -32,6 +32,13 @@ function writePassword() {
       generatePassword(); 
     }
 
+    //loops through the length to create the password
+    for (var i = 0; i < passLength; i++) {
+      
+    }
+    //create a loop for the length of the random number 
+    //for each i randomly pick each of the included characters then randomly pick from within those
+
   }
 
 
