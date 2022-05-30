@@ -17,23 +17,32 @@ function writePassword() {
       writePassword();
     }
 
-    // asks for special characters
-    var characters = window.confirm("Do you want to include special characters?");
+    var characters = false; 
+    var lowercase = false;
+    var uppercase = false;
+    var numbers = false; 
 
-    //asks for lowercase
-    var lowercase = window.confirm("Do you want to include lowercase?");
+    while (!characters && !lowercase && !uppercase && !numbers) {
+      window.alert("At least one character type must be included.");
+      // asks for special characters
+      characters = window.confirm("Do you want to include special characters?");
 
-    //asks for uppercase
-    var uppercase = window.confirm("Do you want to include uppercase?");
+      //asks for lowercase
+      lowercase = window.confirm("Do you want to include lowercase?");
 
-    //asks for numeric
-    var numbers = window.confirm("Do you want to include numbers?");
+      //asks for uppercase
+      uppercase = window.confirm("Do you want to include uppercase?");
+
+      //asks for numeric
+      numbers = window.confirm("Do you want to include numbers?");
+    }
+
 
     //checks that at least one condition is confirmed
-    if (!characters && !lowercase && !uppercase && !numbers){
-      window.alert("At least one character type must be included. Please start over.");
-      writePassword(); 
-    }
+   // if (!characters && !lowercase && !uppercase && !numbers){
+     // window.alert("At least one character type must be included. Please start over.");
+     // writePassword(); 
+  //  }
 
     // sets arrays for the characters that may be included
     var lower = "abcdefghijklmnopqrstuvwxyz";
