@@ -27,17 +27,42 @@ function writePassword() {
     //asks for numeric
     var numbers = window.confirm("Do you want to include numbers?");
 
+    //checks that at least one condition is confirmed
     if (!characters && !lowercase && !uppercase && !numbers){
       window.alert("At least one character type must be included. Please start over.");
       generatePassword(); 
     }
 
+    // sets arrays for the characters that may be included
+    var lower = "abcdefghijklmnopqrstuvwxyz";
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var num = "0123456789";
+    var special = "!@#$%^&*_-+=";
+
+    var possibleChar = "";
+    // if statements to add the included characters into the array of potential characters for the password
+    if (characters) {
+      possibleChar += special; 
+    }
+    if (lowercase) {
+      possibleChar += lower; 
+    }
+    if (uppercase) {
+      possibleChar += upper; 
+    }
+    if (numbers) {
+      possibleChar += num; 
+    }
+
+    var password = "";
+
     //loops through the length to create the password
     for (var i = 0; i < passLength; i++) {
-      
+      password += possibleChar[Math.floor(Math.random()*possibleChar.length)];
+      console.log(password); 
     }
-    //create a loop for the length of the random number 
-    //for each i randomly pick each of the included characters then randomly pick from within those
+  
+    return(password); 
 
   }
 
