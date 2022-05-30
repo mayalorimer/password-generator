@@ -10,9 +10,11 @@ function writePassword() {
     // Checks the length given to determine if it is valid
     if (passLength < 8) {
       window.alert("Length is too short");
+      writePassword();
     }
     else if (passLength > 128) {
       window.alert("Length is too long");
+      writePassword();
     }
 
     // asks for special characters
@@ -30,7 +32,7 @@ function writePassword() {
     //checks that at least one condition is confirmed
     if (!characters && !lowercase && !uppercase && !numbers){
       window.alert("At least one character type must be included. Please start over.");
-      generatePassword(); 
+      writePassword(); 
     }
 
     // sets arrays for the characters that may be included
@@ -40,26 +42,26 @@ function writePassword() {
     var special = "!@#$%^&*_-+=";
 
     var possibleChar = "";
+
     // if statements to add the included characters into the array of potential characters for the password
     if (characters) {
-      possibleChar += special; 
+      possibleChar = possibleChar.concat(special); 
     }
     if (lowercase) {
-      possibleChar += lower; 
+      possibleChar = possibleChar.concat(lower); 
     }
     if (uppercase) {
-      possibleChar += upper; 
+      possibleChar = possibleChar.concat(upper); 
     }
     if (numbers) {
-      possibleChar += num; 
+      possibleChar = possibleChar.concat(num); 
     }
 
     var password = "";
 
     //loops through the length to create the password
     for (var i = 0; i < passLength; i++) {
-      password += possibleChar[Math.floor(Math.random()*possibleChar.length)];
-      console.log(password); 
+      password += possibleChar[Math.floor(Math.random()*(possibleChar.length))];
     }
   
     return(password); 
@@ -71,8 +73,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-  
 
 }
 
